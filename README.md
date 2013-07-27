@@ -10,5 +10,6 @@ Supported Ciphers
 
 As of now, the ciphers that Pyphers supports include:
 
+* The Reverse cipher
 * The Caesar cipher
 * The Vigenere cipher
