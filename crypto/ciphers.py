@@ -5,7 +5,7 @@ class Cipher(object):
 	"""Superclass for all ciphers."""
 	
 	@staticmethod
-	def encrypt(self, data, key):
+	def encrypt(data, key):
 		"""Encrypts the string data based on a given key and
 		returns the encrypted data as a string.
 		"""
@@ -13,7 +13,7 @@ class Cipher(object):
 		key = str(key).upper()
 	
 	@staticmethod
-	def decrypt(self, data, key):
+	def decrypt(data, key):
 		"""Decrypts the string data based on a given key and
 		returns the decrypted data as a string.
 		"""
@@ -25,6 +25,21 @@ class Cipher(object):
 	
 	__repr__ = __str__
 
+	
+	
+class Reverse(Cipher):
+	"""A class capable or encrypting and decrypting
+	data using the Reverse cipher (if you could call
+	it encrypting/decrypting).
+	"""
+	
+	@staticmethod
+	def encrypt(data):
+		return data[::-1]
+	
+	@staticmethod
+	def decrypt(data):
+		return data[::-1]
 
 
 class Caesar(Cipher):
@@ -33,7 +48,7 @@ class Caesar(Cipher):
 	"""
 	
 	@staticmethod
-	def encrypt(self, data, key):
+	def encrypt(data, key):
 		"""Encrypts data using the Caesar cipher."""
 		data = str(data).upper()
 		key = int(key) % 26
@@ -47,7 +62,7 @@ class Caesar(Cipher):
 		return encrypted
 	
 	@staticmethod
-	def decrypt(self, data, key):
+	def decrypt(data, key):
 		"""Decrypts data encrypted with the Caesar cipher."""
 		data = str(data).upper()
 		key = int(key) % 26
